@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">DataBindingEx</string>
+    <string name="likes">Likes</string>
+    <string name="tv">TextView</string>
+    <string name="profile_name">NAME</string>
+    <string name="profile_lastname">LAST NAME</string>
+    <string name="label_lastname">Last name</string>
+    <string name="label_name">Name</string>
+    <string name="cd_profile_avatar">Profile\'s avatar</string>
+    <string name="like">Like</string>
 </resources>
