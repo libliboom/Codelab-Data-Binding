@@ -11,9 +11,11 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.widget.ImageViewCompat
+import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProviders
 import com.github.libliboom.data.Popularity
 import com.github.libliboom.data.SimpleViewModel
+import com.github.libliboom.databindingex.databinding.ActivityPlainBinding
 
 /**
  * Plain old activity with lots of problems to fix.
@@ -27,10 +29,13 @@ class PlainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setContentView(R.layout.activity_plain)
+        /** activity_plain -> ActivityPlainBinding **/
+        val binding: ActivityPlainBinding =
+            DataBindingUtil.setContentView(this, R.layout.activity_plain)
 
-        // TODO: Explicitly setting initial values is a bad pattern. We'll fix that.
-        updateName()
+        binding.name = "Ada"
+        binding.lastName = "Lovelace"
+
         updateLikes()
     }
 
@@ -41,14 +46,6 @@ class PlainActivity : AppCompatActivity() {
     fun onLike(view: View) {
         viewModel.onLike()
         updateLikes()
-    }
-
-    /**
-     * So much findViewById! We'll fix that with Data Binding.
-     */
-    private fun updateName() {
-        findViewById<TextView>(R.id.plain_name).text = viewModel.name
-        findViewById<TextView>(R.id.plain_lastname).text = viewModel.lastName
     }
 
     /**
