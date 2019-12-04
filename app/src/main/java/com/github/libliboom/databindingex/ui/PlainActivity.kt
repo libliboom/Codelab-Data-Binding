@@ -1,10 +1,11 @@
-package com.github.libliboom.databindingex
+package com.github.libliboom.databindingex.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProviders
-import com.github.libliboom.data.SimpleViewModel
+import com.github.libliboom.databindingex.R
+import com.github.libliboom.databindingex.data.SimpleViewModel
 import com.github.libliboom.databindingex.databinding.ActivityPlainBinding
 
 /**
@@ -14,14 +15,18 @@ import com.github.libliboom.databindingex.databinding.ActivityPlainBinding
 class PlainActivity : AppCompatActivity() {
 
     // Obtain ViewModel from ViewModelProviders
-    private val viewModel by lazy { ViewModelProviders.of(this).get(SimpleViewModel::class.java) }
+    private val viewModel by lazy {
+        ViewModelProviders.of(this).get(SimpleViewModel::class.java)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         /** activity_plain -> ActivityPlainBinding **/
         val binding: ActivityPlainBinding =
-            DataBindingUtil.setContentView(this, R.layout.activity_plain)
+            DataBindingUtil.setContentView(this,
+                R.layout.activity_plain
+            )
 
         binding.lifecycleOwner = this
 

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.github.libliboom.data
+package com.github.libliboom.databindingex.data
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
